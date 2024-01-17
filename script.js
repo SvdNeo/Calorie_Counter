@@ -45,3 +45,14 @@ document.getElementById('calorieForm').addEventListener('submit', function (even
     document.getElementById('consumed').textContent = `Consumed Calories: ${totalCaloriesConsumed}`;
     document.getElementById('burned').textContent = `Burned Calories: ${exercise}`;
   }
+  function getTotalCaloriesFromFieldset(fieldsetId) {
+    const inputContainer = document.querySelector(`#${fieldsetId} .input-container`);
+    const calorieInputs = inputContainer.querySelectorAll('input[type="number"]');
+    let totalCalories = 0;
+
+    calorieInputs.forEach(input => {
+      totalCalories += parseInt(input.value) || 0;
+    });
+
+    return totalCalories;
+  }
