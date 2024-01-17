@@ -56,3 +56,16 @@ document.getElementById('calorieForm').addEventListener('submit', function (even
 
     return totalCalories;
   }
+  function clearForm() {
+    document.getElementById('calorieForm').reset();
+
+    // Clear input containers
+    const inputContainers = document.querySelectorAll('.input-container');
+    inputContainers.forEach(container => {
+      container.innerHTML = '';
+    });
+
+    // Clear result container
+    const resultContainer = document.querySelector('.result-container');
+    resultContainer.innerHTML = '';
+  }
