@@ -73,7 +73,8 @@
     margin-bottom: 10px;
   }
   
-  .output {
+  .result-container {
+    display: none;
     border: 2px solid var(--light-grey);
     padding: 10px;
     text-align: center;
@@ -83,16 +84,16 @@
     display: none;
   }
   
-  .output span {
+  .result-container p {
     font-weight: bold;
     font-size: 1.2em;
   }
   
-  .surplus {
+  #surplus {
     color: var(--light-green);
   }
   
-  .deficit {
+  #deficit {
     color: var(--light-pink);
   }
   
