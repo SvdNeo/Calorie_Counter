@@ -1,13 +1,8 @@
-document.getElementById('calorieForm').addEventListener('submit', function (event) {
-    event.preventDefault(); // Prevent form submission
-
-    addEntry();
-  });
-  function addEntry() {
+function addEntry() {
     const entryType = document.getElementById('entryType').value;
-    const entryFieldsContainer = document.getElementById(entryType + 'Fieldset').querySelector('.input-container');
+    const targetInputContainer = document.querySelector(`#${entryType}Fieldset .input-container`);
+    const entryNumber = targetInputContainer.querySelectorAll('input[type="text"]').length + 1;
 
-    const entryNumber = entryFieldsContainer.querySelectorAll('input[type="text"]').length + 1;
     const HTMLString = `
       <label for="${entryType}-${entryNumber}-name">Entry ${entryNumber} Name</label>
       <input type="text" id="${entryType}-${entryNumber}-name" placeholder="Name" />
@@ -19,8 +14,9 @@ document.getElementById('calorieForm').addEventListener('submit', function (even
         placeholder="Calories"
       />`;
 
-    entryFieldsContainer.insertAdjacentHTML('beforeend', HTMLString);
+    targetInputContainer.insertAdjacentHTML('beforeend', HTMLString);
   }
+
   function calculateTotalCalories() {
     const budget = parseInt(document.getElementById('budget').value) || 0;
 
@@ -45,6 +41,7 @@ document.getElementById('calorieForm').addEventListener('submit', function (even
     document.getElementById('consumed').textContent = `Consumed Calories: ${totalCaloriesConsumed}`;
     document.getElementById('burned').textContent = `Burned Calories: ${exercise}`;
   }
+
   function getTotalCaloriesFromFieldset(fieldsetId) {
     const inputContainer = document.querySelector(`#${fieldsetId} .input-container`);
     const calorieInputs = inputContainer.querySelectorAll('input[type="number"]');
@@ -56,6 +53,7 @@ document.getElementById('calorieForm').addEventListener('submit', function (even
 
     return totalCalories;
   }
+
   function clearForm() {
     document.getElementById('calorieForm').reset();
 

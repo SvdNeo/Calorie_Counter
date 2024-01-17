@@ -23,6 +23,7 @@
   .container {
     width: 90%;
     max-width: 680px;
+    margin: 20px auto;
   }
   
   h1,
@@ -47,9 +48,11 @@
     text-decoration: none;
     background-color: var(--light-yellow);
     border: 2px solid var(--dark-yellow);
+    min-height: 24px;
+    color: var(--dark-blue);
   }
   
-  .clear {
+  button.clear {
     background-color: var(--light-pink);
     color: var(--dark-red);
     border-color: var(--dark-red);
@@ -92,3 +95,4 @@
   .deficit {
     color: var(--light-pink);
   }
+  
